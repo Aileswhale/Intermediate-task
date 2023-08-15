@@ -25,13 +25,13 @@ function displayCountries(countries) {
     countryName.textContent = country.name.common;
 
     const countryPopulation = document.createElement('p');
-    countryPopulation.textContent = country.population;
+    countryPopulation.textContent = `Population: ${country.population}`;
 
     const countryRegion = document.createElement('p');
-    countryRegion.textContent = country.region;
+    countryRegion.textContent = `Region: ${country.region}`;
 
     const countryCapital = document.createElement('p');
-    countryCapital.textContent = country.capital;
+    countryCapital.textContent = `Capital: ${country.capital}`;
 
     const countryFlag = document.createElement('img');
     countryFlag.src = country.flags.png;
