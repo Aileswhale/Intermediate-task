@@ -1,0 +1,55 @@
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color:rgba(241, 241, 241, 0.849) ;
+    color: white;
+    padding: 0.2rem 1rem;
+    text-align: center;
+}
+.headTitle {
+}
+ul{
+    list-style-type: none ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li{
+    display : inline-block;
+    color:rgb(2, 16, 27) ;
+    padding-right: 1rem;
+    font-weight: 800;
+
+}
+
+.search-filter {
+    margin: 2rem 1rem 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+#regionFilter{
+    padding: 0.8rem;
+    outline: none;
+    border-style: none;
+    background-color: rgba(241, 241, 241, 0.849);
+
+}
+#searchInput{
+    padding: 0.8rem;
+        outline: none;
+        border-style: none;
+        background-color: rgba(241, 241, 241, 0.849);
+}
+
+.country-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
