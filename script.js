@@ -1,6 +1,7 @@
 const searchInput = document.getElementById('searchInput');
 const regionFilter = document.getElementById('regionFilter');
 const countryList = document.getElementById('countryList');
+const toggler = document.getElementById("toggler")
 
 const apiUrl = 'https://restcountries.com/v3.1/all';
 
@@ -13,6 +14,19 @@ async function getCountries() {
     console.error('Error fetching countries:', error);
   }
 }
+
+toggler.addEventListener("click", () => {
+  const element = document.body
+  let toggleName = toggler.innerHTML
+  element.classList.toggle("darkMode")
+  if (toggleName === "Dark Mode") {
+    
+    toggler.innerHTML = "Light Mode";
+  } else {
+    toggler.innerHTML = "Dark Mode";
+  }
+
+})
 
 function displayCountries(countries) {
   countryList.innerHTML = '';
@@ -44,7 +58,13 @@ function displayCountries(countries) {
     countryCard.appendChild(countryRegion);
 
     countryCard.addEventListener('click', () => {
-      window.location.href = `country.html?code=${country.cca3}`;
+      // if (e.target.tagName == "A" &&
+      // !e.target.hasAttribute("target"))
+      // {
+      //   e.target.setAttribute("target", "_blank");
+      // }
+      // window.location.href = `${country.maps.googleMaps}`;
+      window.open(`${country.maps.googleMaps}`, '_blank');
     });
 
     countryList.appendChild(countryCard);
