@@ -15,6 +15,8 @@ async function getCountries() {
   }
 }
 
+
+
 toggler.addEventListener("click", () => {
   const element = document.body
   let toggleName = toggler.innerHTML
@@ -56,15 +58,23 @@ function displayCountries(countries) {
     countryCard.appendChild(countryPopulation);
     countryCard.appendChild(countryCapital);
     countryCard.appendChild(countryRegion);
-
-    countryCard.addEventListener('click', () => {
+    
+    countryCard.addEventListener('click', async () => {
       // if (e.target.tagName == "A" &&
       // !e.target.hasAttribute("target"))
       // {
       //   e.target.setAttribute("target", "_blank");
       // }
       // window.location.href = `${country.maps.googleMaps}`;
-      window.open(`${country.maps.googleMaps}`, '_blank');
+      // window.open(`${country.maps.googleMaps}`, '_blank');
+      const countries = await getCountries()
+      
+      let selected = countries.filter((item) => {
+        return item.name.common === country.name.common
+      })
+      let strgselected = JSON.stringify(selected)
+      localStorage.setItem("country", strgselected)
+      window.open("detail.html", '_blank');
     });
 
     countryList.appendChild(countryCard);
@@ -76,12 +86,14 @@ async function filterCountries() {
   const selectedRegion = regionFilter.value;
   const countries = await getCountries();
 
-  const filteredCountries = countries.filter(country =>
+  const filteredCountries = countries.filter(country => 
     country.name.common.toLowerCase().includes(searchTerm) &&
-    (selectedRegion === '' || country.region.includes(selectedRegion))
+      (selectedRegion === '' || country.region.includes(selectedRegion))
+    // console.log(country);
   );
 
   displayCountries(filteredCountries);
+  // console.log(filteredCountries);
 }
 
 searchInput.addEventListener('input', filterCountries);

@@ -67,6 +67,30 @@ li{
     gap: 1.5rem;
     padding: 2rem;
 }
+.backBtn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    margin:0.7rem 0.8rem ;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 2px;
+    
+}
+.detail-list img{
+    padding-top: 2rem;
+}
+
+.detail-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+.detail-list p {
+    margin: 0.4rem;
+}
+
 
 /* .theme-dark {
     --header-bg: #2c3e50;
